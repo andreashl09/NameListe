@@ -9,30 +9,28 @@ public class Main {
 
         Scanner scan = new Scanner(System.in);
         boolean run = true;
+        HashSet<String> set = new HashSet<>();
 
-        while(run){
-            HashSet<String> set = new HashSet<>();
+        while (run) {
             System.out.println("LISTE: Gib die Liste aus, ENDE: beendet das Programm");
             System.out.println("Bitte gib einen Namen ein:");
             String inputUser = scan.next();
-            if(inputUser.equals("LISTE")){
+            if (inputUser.equals("LISTE")) {
                 System.out.println(printList(set));
             }
-            if(inputUser.equals("ENDE")) run = false;
+            if (inputUser.equals("ENDE")) run = false;
 
-            if(!set.add(inputUser)) System.out.println("Der Name ist schon vorhanden!");
+            if (!set.add(inputUser)) System.out.println("Der Name ist schon vorhanden!");
         }
 
         scan.close();
 
     }
 
-    public static StringBuilder printList(Set<String> set){
+    public static StringBuilder printList(Set<String> set) {
         StringBuilder sb = new StringBuilder();
         sb.append("Deine Liste:" + "\n");
-        for (int i = 0; i < set.size(); i++) {
-            sb.append(set);
-        }
+        for (String string : set) sb.append(string);
         return sb;
     }
 }
