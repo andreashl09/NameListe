@@ -11,7 +11,7 @@ public class Main {
         boolean run = true;
 
         while(run){
-            Set<String> set = new HashSet<>();
+            HashSet<String> set = new HashSet<>();
             System.out.println("LISTE: Gib die Liste aus, ENDE: beendet das Programm");
             System.out.println("Bitte gib einen Namen ein:");
             String inputUser = scan.next();
@@ -20,13 +20,7 @@ public class Main {
             }
             if(inputUser.equals("ENDE")) run = false;
 
-
-            if(set.add(inputUser)){
-                set.add(inputUser);
-
-            }else {
-                System.out.println("Der Name:" + inputUser + " ist bereits in der Liste!");
-            }
+            if(!set.add(inputUser)) System.out.println("Der Name ist schon vorhanden!");
         }
 
         scan.close();
